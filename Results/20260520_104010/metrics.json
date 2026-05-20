@@ -1,0 +1,194 @@
+{
+  "timestamp": "20260520_104010",
+  "internal_test_results": [
+    {
+      "Model": "Meta-LR",
+      "Type": "Meta-Model",
+      "F1 Score": 0.877030162412993,
+      "Accuracy": 0.8799546998867497
+    },
+    {
+      "Model": "Meta-RF",
+      "Type": "Meta-Model",
+      "F1 Score": 0.8765077541642734,
+      "Accuracy": 0.8782559456398641
+    },
+    {
+      "Model": "Weighted Ensemble",
+      "Type": "Ensemble",
+      "F1 Score": 0.8752834467120182,
+      "Accuracy": 0.8754246885617214
+    },
+    {
+      "Model": "Meta-MLP",
+      "Type": "Meta-Model",
+      "F1 Score": 0.8737752161383285,
+      "Accuracy": 0.8759909399773499
+    },
+    {
+      "Model": "ET",
+      "Type": "Individual",
+      "F1 Score": 0.869361452841242,
+      "Accuracy": 0.8737259343148358
+    },
+    {
+      "Model": "SVM",
+      "Type": "Individual",
+      "F1 Score": 0.8678592036930178,
+      "Accuracy": 0.8703284258210645
+    },
+    {
+      "Model": "XGB",
+      "Type": "Individual",
+      "F1 Score": 0.8676384839650145,
+      "Accuracy": 0.8714609286523216
+    },
+    {
+      "Model": "LGBM",
+      "Type": "Individual",
+      "F1 Score": 0.8645833333333334,
+      "Accuracy": 0.8674971687429218
+    },
+    {
+      "Model": "Meta-XGB",
+      "Type": "Meta-Model",
+      "F1 Score": 0.8632183908045977,
+      "Accuracy": 0.8652321630804077
+    },
+    {
+      "Model": "MLP",
+      "Type": "Individual",
+      "F1 Score": 0.8595793064241046,
+      "Accuracy": 0.8601359003397508
+    },
+    {
+      "Model": "CAT",
+      "Type": "Individual",
+      "F1 Score": 0.8576409064497386,
+      "Accuracy": 0.861268403171008
+    },
+    {
+      "Model": "RF",
+      "Type": "Individual",
+      "F1 Score": 0.8506417736289381,
+      "Accuracy": 0.855039637599094
+    },
+    {
+      "Model": "GB",
+      "Type": "Individual",
+      "F1 Score": 0.8503755054881571,
+      "Accuracy": 0.8533408833522084
+    },
+    {
+      "Model": "Combined Meta-Model",
+      "Type": "Meta-Model",
+      "F1 Score": 0.8093340922026181,
+      "Accuracy": 0.8103057757644394
+    },
+    {
+      "Model": "LR",
+      "Type": "Individual",
+      "F1 Score": 0.8027210884353742,
+      "Accuracy": 0.8029445073612684
+    }
+  ],
+  "external_validation_results": [
+    {
+      "Model": "Meta-MLP",
+      "F1 Score": 0.8943014705882353,
+      "Accuracy": 0.8957388939256573
+    },
+    {
+      "Model": "LGBM (Individual)",
+      "F1 Score": 0.8925925925925926,
+      "Accuracy": 0.8948322756119673
+    },
+    {
+      "Model": "Weighted Ensemble",
+      "F1 Score": 0.8925170068027211,
+      "Accuracy": 0.8925657298277425
+    },
+    {
+      "Model": "Meta-LR",
+      "F1 Score": 0.8901149425287357,
+      "Accuracy": 0.8916591115140526
+    },
+    {
+      "Model": "ET (Individual)",
+      "F1 Score": 0.8872320596458527,
+      "Accuracy": 0.8902991840435177
+    },
+    {
+      "Model": "SVM (Individual)",
+      "F1 Score": 0.8862385321100917,
+      "Accuracy": 0.8875793291024479
+    },
+    {
+      "Model": "XGB (Individual)",
+      "F1 Score": 0.8853974121996303,
+      "Accuracy": 0.8875793291024479
+    },
+    {
+      "Model": "Meta-RF",
+      "F1 Score": 0.8848987108655617,
+      "Accuracy": 0.886672710788758
+    },
+    {
+      "Model": "RF (Individual)",
+      "F1 Score": 0.878409616273694,
+      "Accuracy": 0.8807796917497733
+    },
+    {
+      "Model": "CAT (Individual)",
+      "F1 Score": 0.8728110599078341,
+      "Accuracy": 0.8748866727107888
+    },
+    {
+      "Model": "Meta-XGB",
+      "F1 Score": 0.8722426470588235,
+      "Accuracy": 0.8739800543970988
+    },
+    {
+      "Model": "GB (Individual)",
+      "F1 Score": 0.8706739526411658,
+      "Accuracy": 0.8712601994560291
+    },
+    {
+      "Model": "MLP (Individual)",
+      "F1 Score": 0.8669950738916257,
+      "Accuracy": 0.8653671804170444
+    },
+    {
+      "Model": "Combined Meta-Model",
+      "F1 Score": 0.8213137344970143,
+      "Accuracy": 0.8236627379873074
+    },
+    {
+      "Model": "LR (Individual)",
+      "F1 Score": 0.8068437640702386,
+      "Accuracy": 0.8055303717135086
+    }
+  ],
+  "best_internal_model": {
+    "name": "Meta-LR",
+    "f1": 0.877030162412993,
+    "accuracy": 0.8799546998867497
+  },
+  "best_external_model": {
+    "name": "Meta-MLP",
+    "f1": 0.8943014705882353,
+    "accuracy": 0.8957388939256573
+  },
+  "weighted_ensemble_config": {
+    "models": [
+      "MLP",
+      "LGBM"
+    ],
+    "weights": [
+      0.2,
+      0.8
+    ],
+    "threshold": 0.39999999999999997,
+    "motif_boost": 0.05
+  }
+}
