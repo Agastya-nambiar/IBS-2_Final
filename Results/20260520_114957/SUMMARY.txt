@@ -1,0 +1,54 @@
+Pipeline Run: 20260520_114957
+==================================================
+
+INTERNAL TEST SET RESULTS:
+==============================
+                  Model        Type  F1 Score  Accuracy
+10              Meta-LR  Meta-Model  0.877030  0.879955
+11              Meta-RF  Meta-Model  0.876508  0.878256
+9     Weighted Ensemble    Ensemble  0.875283  0.875425
+13             Meta-MLP  Meta-Model  0.873775  0.875991
+3                    ET  Individual  0.869361  0.873726
+4                   SVM  Individual  0.867859  0.870328
+1                   XGB  Individual  0.867638  0.871461
+7                  LGBM  Individual  0.864583  0.867497
+12             Meta-XGB  Meta-Model  0.863218  0.865232
+5                   MLP  Individual  0.859579  0.860136
+8                   CAT  Individual  0.857641  0.861268
+0                    RF  Individual  0.850642  0.855040
+6                    GB  Individual  0.850376  0.853341
+14  Combined Meta-Model  Meta-Model  0.809334  0.810306
+2                    LR  Individual  0.802721  0.802945
+
+Best Overall Model: Meta-LR
+  F1 Score: 0.8770
+  Accuracy: 0.8800
+
+EXTERNAL VALIDATION RESULTS:
+==============================
+                  Model  F1 Score  Accuracy
+13             Meta-MLP  0.894301  0.895739
+7     LGBM (Individual)  0.892593  0.894832
+9     Weighted Ensemble  0.892517  0.892566
+10              Meta-LR  0.890115  0.891659
+3       ET (Individual)  0.887232  0.890299
+4      SVM (Individual)  0.886239  0.887579
+1      XGB (Individual)  0.885397  0.887579
+11              Meta-RF  0.884899  0.886673
+0       RF (Individual)  0.878410  0.880780
+8      CAT (Individual)  0.872811  0.874887
+12             Meta-XGB  0.872243  0.873980
+6       GB (Individual)  0.870674  0.871260
+5      MLP (Individual)  0.866995  0.865367
+14  Combined Meta-Model  0.821314  0.823663
+2       LR (Individual)  0.806844  0.805530
+
+Best External Model: Meta-MLP
+  F1 Score: 0.8943
+  Accuracy: 0.8957
+
+WEIGHTED ENSEMBLE CONFIGURATION:
+  Models: ('MLP', 'LGBM')
+  Weights: (0.2, 0.8)
+  Threshold: 0.40
+  Motif Boost: 0.05
