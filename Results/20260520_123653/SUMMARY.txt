@@ -1,0 +1,58 @@
+Pipeline Run: 20260520_123653
+==================================================
+
+INTERNAL TEST SET RESULTS:
+==============================
+                  Model        Type  F1 Score  Accuracy     AUROC        R²
+10              Meta-LR  Meta-Model  0.877030  0.879955  0.941986  0.631199
+11              Meta-RF  Meta-Model  0.876508  0.878256  0.937659  0.624975
+9     Weighted Ensemble    Ensemble  0.875283  0.875425  0.938529  0.608505
+13             Meta-MLP  Meta-Model  0.873775  0.875991  0.941905  0.632378
+3                    ET  Individual  0.869361  0.873726  0.939788  0.604348
+4                   SVM  Individual  0.867859  0.870328  0.926616  0.595735
+1                   XGB  Individual  0.867638  0.871461  0.936995  0.589242
+7                  LGBM  Individual  0.864583  0.867497  0.938187  0.594106
+12             Meta-XGB  Meta-Model  0.863218  0.865232  0.929653  0.560431
+5                   MLP  Individual  0.859579  0.860136  0.923314  0.512236
+8                   CAT  Individual  0.857641  0.861268  0.934560  0.598602
+0                    RF  Individual  0.850642  0.855040  0.928443  0.568934
+6                    GB  Individual  0.850376  0.853341  0.928514  0.578700
+14  Combined Meta-Model  Meta-Model  0.809334  0.810306  0.875485  0.335396
+2                    LR  Individual  0.802721  0.802945  0.880918  0.338879
+
+Best Overall Model: Meta-LR
+  F1 Score: 0.8770
+  Accuracy: 0.8800
+  AUROC: 0.9420
+  R²: 0.6312
+
+EXTERNAL VALIDATION RESULTS:
+==============================
+                  Model  F1 Score  Accuracy     AUROC        R²
+13             Meta-MLP  0.894301  0.895739  0.953585  0.676621
+7     LGBM (Individual)  0.892593  0.894832  0.955687  0.671510
+9     Weighted Ensemble  0.892517  0.892566  0.954170  0.676859
+10              Meta-LR  0.890115  0.891659  0.953526  0.675240
+3       ET (Individual)  0.887232  0.890299  0.949991  0.636477
+4      SVM (Individual)  0.886239  0.887579  0.936987  0.632599
+1      XGB (Individual)  0.885397  0.887579  0.949189  0.636423
+11              Meta-RF  0.884899  0.886673  0.949865  0.657362
+0       RF (Individual)  0.878410  0.880780  0.942586  0.611876
+8      CAT (Individual)  0.872811  0.874887  0.943006  0.633091
+12             Meta-XGB  0.872243  0.873980  0.939950  0.594520
+6       GB (Individual)  0.870674  0.871260  0.940758  0.620609
+5      MLP (Individual)  0.866995  0.865367  0.934969  0.540376
+14  Combined Meta-Model  0.821314  0.823663  0.890089  0.379534
+2       LR (Individual)  0.806844  0.805530  0.884733  0.335710
+
+Best External Model: Meta-MLP
+  F1 Score: 0.8943
+  Accuracy: 0.8957
+  AUROC: 0.9536
+  R²: 0.6766
+
+WEIGHTED ENSEMBLE CONFIGURATION:
+  Models: ('MLP', 'LGBM')
+  Weights: (0.2, 0.8)
+  Threshold: 0.40
+  Motif Boost: 0.05
