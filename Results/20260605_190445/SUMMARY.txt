@@ -1,0 +1,20 @@
+
+====================================
+PIPELINE RESULTS - 20260605_190445
+====================================
+
+INTERNAL TEST SET (Stacking Model):
+  Accuracy: 0.8698
+  F1 Score: 0.8663
+  AUROC: 0.9407
+
+EXTERNAL VALIDATION (Stacking Model):
+  Accuracy: 0.8926
+  F1 Score: 0.8913
+  AUROC: 0.9525
+
+FEATURE SELECTION:
+  Original features: 2944
+  Selected features: 1472
+
+BASE MODELS USED IN STACKING: ['RF', 'XGB', 'LGBM', 'CAT']
