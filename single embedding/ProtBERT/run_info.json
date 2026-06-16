@@ -1,0 +1,5 @@
+{
+  "model_name": "ProtBERT",
+  "timestamp": "2026-06-16 16:40:58",
+  "pipeline": "ProtBERT + handcrafted + ensemble"
+}
