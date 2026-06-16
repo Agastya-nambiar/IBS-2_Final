@@ -1,0 +1,5 @@
+{
+  "model_name": "ESM2",
+  "timestamp": "2026-06-16 06:41:18",
+  "pipeline": "ESM2 + handcrafted + ensemble"
+}
