@@ -1,0 +1,5 @@
+{
+  "model_name": "ProtT5",
+  "timestamp": "2026-06-17 15:08:41",
+  "pipeline": "ProtT5 + handcrafted + ensemble"
+}
