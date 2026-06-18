@@ -1,0 +1,20 @@
+{
+  "best_internal_model": "Stacking (LR)",
+  "best_internal_f1": 0.8731257208765859,
+  "best_internal_auroc": 0.9451614682264339,
+  "best_external_model": "Stacking (LR)",
+  "best_external_f1": 0.8932661475034357,
+  "best_external_auroc": 0.9531229836373067,
+  "weighted_ensemble_config": {
+    "models": [
+      "MLP",
+      "LGBM"
+    ],
+    "weights": [
+      0.2,
+      0.8
+    ],
+    "threshold": 0.5999999999999999,
+    "motif_boost": 0.05
+  }
+}
