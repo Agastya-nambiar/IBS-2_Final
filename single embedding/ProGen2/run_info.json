@@ -1,0 +1,6 @@
+{
+  "model_name": "ProGen2",
+  "actual_model_loaded": "hugohrban/progen2-small",
+  "timestamp": "2026-06-19 20:22:32",
+  "pipeline": "ProGen2 (hugohrban/progen2-small) + handcrafted + ensemble"
+}
