@@ -1,20 +1,21 @@
 {
   "best_internal_model": "Stacking (LR)",
-  "best_internal_f1": 0.8731257208765859,
-  "best_internal_auroc": 0.9451614682264339,
+  "best_internal_f1": 0.8724754760530872,
+  "best_internal_auroc": 0.9454526099508906,
   "best_external_model": "Stacking (LR)",
-  "best_external_f1": 0.8932661475034357,
-  "best_external_auroc": 0.9531229836373067,
+  "best_external_f1": 0.8925468678555099,
+  "best_external_auroc": 0.952932289667428,
   "weighted_ensemble_config": {
     "models": [
-      "MLP",
+      "ET",
       "LGBM"
     ],
     "weights": [
-      0.2,
-      0.8
+      0.5,
+      0.5
     ],
-    "threshold": 0.5999999999999999,
+    "threshold": 0.5499999999999999,
     "motif_boost": 0.05
-  }
+  },
+  "models_location": "models/ (scaler.pkl, selector.pkl, meta_model.pkl)"
 }

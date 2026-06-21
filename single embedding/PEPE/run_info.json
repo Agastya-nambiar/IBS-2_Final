@@ -1,5 +1,10 @@
 {
   "model_name": "PEPE",
-  "timestamp": "2026-06-18 17:42:09",
-  "pipeline": "PEPE (ESM2 35M) + handcrafted + ensemble"
+  "timestamp": "2026-06-21 19:46:55",
+  "pipeline": "PEPE (ESM2 35M) + handcrafted + ensemble",
+  "models_saved": [
+    "scaler.pkl",
+    "selector.pkl",
+    "meta_model.pkl"
+  ]
 }
