@@ -1,0 +1,19 @@
+{
+  "combo_name": "ESM2_PEPE",
+  "model_1": "ESM2 (Full) + Stacking(LR)",
+  "model_2": "PEPE + Stacking(LR)",
+  "weight_model_1": 0.84,
+  "weight_model_2": 0.16,
+  "threshold": 0.45,
+  "performance": {
+    "external_f1": 0.9026,
+    "external_auc": 0.9556,
+    "external_accuracy": 0.903
+  },
+  "baseline_comparison": {
+    "esm2_alone_f1": 0.8982,
+    "pepe_alone_f1": 0.8933
+  },
+  "timestamp": "2026-06-21 17:33:47",
+  "note": "Weighted ensemble of probabilities (safe meta-fusion, no embedding concatenation)"
+}
