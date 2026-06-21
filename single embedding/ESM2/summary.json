@@ -16,5 +16,6 @@
     ],
     "threshold": 0.35,
     "motif_boost": 0.05
-  }
+  },
+  "models_location": "models/ (scaler.pkl, selector.pkl, meta_model.pkl)"
 }

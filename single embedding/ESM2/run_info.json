@@ -1,5 +1,10 @@
 {
   "model_name": "ESM2",
-  "timestamp": "2026-06-16 06:41:18",
-  "pipeline": "ESM2 + handcrafted + ensemble"
+  "timestamp": "2026-06-21 18:04:16",
+  "pipeline": "ESM2 + handcrafted + ensemble",
+  "models_saved": [
+    "scaler.pkl",
+    "selector.pkl",
+    "meta_model.pkl"
+  ]
 }
