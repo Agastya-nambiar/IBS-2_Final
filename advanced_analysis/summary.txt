@@ -1,0 +1,8 @@
+
+Advanced Analysis Summary (without ESMFold)
+------------------------------------------
+Fine‑tuned ESM2 (validation) F1: 0.4717, AUC: 0.5083
+One‑shot accuracy: 0.6712 ± 0.1121
+Top 5 dipeptide motifs: ['GA', 'CC', 'KK', 'KC', 'SC']
+Top 5 tripeptide motifs: ['GAK', 'CCL', 'PRP', 'MGF', 'RCC']
+Note: ESMFold structural embeddings were skipped due to Python 3.12 compatibility issues.
