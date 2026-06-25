@@ -1,0 +1,9 @@
+
+Advanced Analysis with ESM2 + PEPE combined embeddings
+-----------------------------------------------------
+Baseline Random Forest (comb)      F1: 0.8818,  AUC: 0.9439
+Baseline Logistic Regression (comb) F1: 0.8729, AUC: 0.9354
+Fine-tuned ESM2+PEPE                F1: 0.8648, AUC: 0.9380
+One-shot accuracy (comb): 0.6304 ± 0.1095
+Significant dipeptide  motifs: 29
+Significant tripeptide motifs: 151
