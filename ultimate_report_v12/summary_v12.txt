@@ -1,0 +1,13 @@
+
+==================================================
+ULTIMATE REPORT v12 – SELF‑CONTAINED DESCRIPTORS
+==================================================
+
+🏆 CHAMPION ENSEMBLE (with optional fine-tuned average)
+F1:  0.9045
+AUC: 0.9607
+Accuracy: 0.9030
+Precision: 0.8903
+Recall: 0.9193
+
+All files saved in 'ultimate_report_v12/'.
