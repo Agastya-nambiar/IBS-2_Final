@@ -1,0 +1,16 @@
+
+==================================================
+ULTIMATE REPORT v11 – BEATS HyPepTox-Fuse
+==================================================
+
+🏆 CHAMPION ENSEMBLE (combined + conventional descriptors + feature selection)
+F1:  0.9042
+AUC: 0.9600
+Accuracy: 0.9039
+Precision: 0.9010
+Recall: 0.9075
+
+🔹 Fine-tuned ESM2+PEPE+Conv (all layers unfrozen + contrastive loss)
+F1: 0.8483, AUC: 0.9114
+
+All files saved in 'ultimate_report_v11/'.
