@@ -1,0 +1,25 @@
+
+==================================================
+ULTIMATE REPORT v10 – COMPATIBLE WITH NUMPY 2.0
+==================================================
+
+🏆 CHAMPION ENSEMBLE (Weighted Stacking with extra models)
+F1:  0.8956
+AUC: 0.9565
+Accuracy: 0.8962
+Precision: 0.9009
+Recall: 0.8903
+Weight: ESM2=0.54, PEPE=0.46
+Threshold: 0.50
+
+🔹 Fine-tuned ESM2+PEPE (all layers unfrozen) – external validation
+F1: 0.8689, AUC: 0.9404
+
+🔹 One-shot accuracy (combined embeddings)
+0.6600 ± 0.1103
+
+🔹 Significant motifs (Bonferroni-corrected)
+Dipeptides: 39
+Tripeptides: 194
+
+All files saved in 'ultimate_report/'.
