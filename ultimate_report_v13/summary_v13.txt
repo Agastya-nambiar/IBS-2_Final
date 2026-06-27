@@ -1,0 +1,13 @@
+
+==================================================
+ULTIMATE REPORT v13 – ALL ENHANCEMENTS
+==================================================
+
+🏆 CHAMPION ENSEMBLE (with optional fine-tuned average)
+F1:  0.8994
+AUC: 0.9600
+Accuracy: 0.8989
+Precision: 0.8950
+Recall: 0.9039
+
+All files saved in 'ultimate_report_v13/'.
