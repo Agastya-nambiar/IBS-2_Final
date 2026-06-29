@@ -1,0 +1,11 @@
+
+======================================================================
+v15 SPEED-OPTIMIZED FINAL REPORT
+======================================================================
+F1: 0.8836 | AUC: 0.9506 | PR-AUC: 0.9575
+Accuracy: 0.8885 | Precision: 0.9238 | Recall: 0.8468
+Sensitivity: 0.8468 | Specificity: 0.9302
+FPR: 0.0698 | FNR: 0.1532
+Confusion: TN=1026 FP=77 FN=169 TP=934
+Threshold: 0.7820
+CV folds: 3 | Optuna trials: 10 | Estimators: 150
