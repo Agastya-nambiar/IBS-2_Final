@@ -1,0 +1,9 @@
+Metric,Value
+TN,1016.0
+FP,87.0
+FN,167.0
+TP,936.0
+Threshold,0.7857746815996376
+Base_Models,16.0
+Meta_Models,6.0
+Stacking_Levels,3.0
