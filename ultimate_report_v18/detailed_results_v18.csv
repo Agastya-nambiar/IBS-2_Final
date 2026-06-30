@@ -1,0 +1,9 @@
+Metric,Value
+True Negatives,1021.0
+False Positives,82.0
+False Negatives,118.0
+True Positives,985.0
+Threshold,0.6448143899688143
+CV Folds,7.0
+Base Models,10.0
+Meta Models,5.0
