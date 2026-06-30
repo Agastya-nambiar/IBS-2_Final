@@ -1,0 +1,63 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v19 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9121
+  AUC-ROC:         0.9657
+  AUC-PR:          0.9696
+
+SECONDARY METRICS:
+  Accuracy:        0.9116
+  Precision:       0.9068
+  Recall:          0.9175
+  Sensitivity:     0.9175
+  Specificity:     0.9057
+  False Pos Rate:  0.0943
+  False Neg Rate:  0.0825
+
+CONFUSION MATRIX:
+  True Negatives:  999
+  False Positives: 104
+  False Negatives: 91
+  True Positives:  1012
+
+======================================================================
+KEY IMPROVEMENTS IN v19 (over v18)
+======================================================================
+
+1. ✅ STACKING CV INCREASED TO 10 FOLDS (was 7)
+   - More stable out‑of‑fold predictions → better meta‑features
+
+2. ✅ ISOTONIC CALIBRATION OF META‑PROBABILITIES
+   - Aligns predicted probabilities with true likelihoods
+   - Often improves AUC slightly
+
+3. ✅ TOP‑3 META‑ENSEMBLE (keep only 3 best meta‑models by validation AUC)
+   - Discards weak meta‑models that add noise
+   - Reduces overfitting → better generalisation
+
+All other improvements from v17/v18 are retained.
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v19/
+
+Files:
+  - performance_v19.csv
+  - detailed_results_v19.csv
+  - champion_confusion_v19.png
+  - roc_curve_v19.png
+  - pr_curve_v19.png
+  - prediction_distribution_v19.png
+  - summary_v19.txt
+
+======================================================================
+Generated: 2026-06-30 10:15:02
+======================================================================
