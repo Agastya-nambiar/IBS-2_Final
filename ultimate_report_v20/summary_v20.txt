@@ -1,0 +1,68 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v20 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9083
+  AUC-ROC:         0.9637
+  AUC-PR:          0.9680
+
+SECONDARY METRICS:
+  Accuracy:        0.9102
+  Precision:       0.9281
+  Recall:          0.8894
+  Sensitivity:     0.8894
+  Specificity:     0.9311
+  False Pos Rate:  0.0689
+  False Neg Rate:  0.1106
+
+CONFUSION MATRIX:
+  True Negatives:  1027
+  False Positives: 76
+  False Negatives: 122
+  True Positives:  981
+
+======================================================================
+KEY IMPROVEMENTS IN v20
+======================================================================
+
+1. ✅ ALL META-MODELS AUC-WEIGHTED (softmax)
+   - Instead of top-3, all 5 meta-models contribute
+   - Weights proportional to exp(AUC) – better utilisation of all signals
+
+2. ✅ COMBINED CALIBRATION (Isotonic + Platt)
+   - Averaging two calibration methods reduces bias and improves probability estimates
+
+3. ✅ INCREASED TOXIC CLASS WEIGHT MULTIPLIER TO 2.0 (was 1.3)
+   - More aggressive re-weighting helps minority class
+
+4. ✅ INCREASED BASE MODEL n_estimators (RF/ET 600, XGB/LGBM 800)
+   - More trees with same depth improve performance without much overhead
+
+5. ✅ ADDED 3 INTERACTION FEATURES (hydro×charge, hydro², charge²)
+   - Captures non-linear relationships at almost zero extra cost
+
+All v19 improvements (10-fold CV, isotonic, feature selection) retained.
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v20/
+
+Files:
+  - performance_v20.csv
+  - detailed_results_v20.csv
+  - champion_confusion_v20.png
+  - roc_curve_v20.png
+  - pr_curve_v20.png
+  - prediction_distribution_v20.png
+  - summary_v20.txt
+
+======================================================================
+Generated: 2026-07-02 16:23:55
+======================================================================
