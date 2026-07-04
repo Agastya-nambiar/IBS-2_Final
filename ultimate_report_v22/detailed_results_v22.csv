@@ -1,0 +1,11 @@
+Metric,Value
+True Negatives,990.0
+False Positives,113.0
+False Negatives,95.0
+True Positives,1008.0
+Threshold,0.5066666666666667
+CV Folds,10.0
+Base Models,10.0
+Meta Models (top3 used),3.0
+Toxic Weight Multiplier,1.5
+Tripeptides,1000.0

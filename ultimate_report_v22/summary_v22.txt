@@ -1,0 +1,57 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v22 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9065
+  AUC-ROC:         0.9631
+  AUC-PR:          0.9635
+
+SECONDARY METRICS:
+  Accuracy:        0.9057
+  Precision:       0.8992
+  Recall:          0.9139
+  Sensitivity:     0.9139
+  Specificity:     0.8976
+  False Pos Rate:  0.1024
+  False Neg Rate:  0.0861
+
+CONFUSION MATRIX:
+  True Negatives:  990
+  False Positives: 113
+  False Negatives: 95
+  True Positives:  1008
+
+======================================================================
+v22 IMPROVEMENTS (over v21)
+======================================================================
+
+1. ✅ 1000 TRIPEPTIDES (was 500) – captures more sequence motifs.
+2. ✅ META-MODEL WEIGHTING = avg(norm AUC, norm F1) – balances discrimination & calibration.
+3. ✅ THRESHOLD OPTIMIZED BY YOUDEN'S INDEX – often gives better sensitivity/specificity trade-off.
+4. ✅ ADDED BASE MODEL WEIGHTED AVERAGE AS EXTRA META-FEATURE – complements stacking.
+
+All v21 components retained (10-fold CV, isotonic, top-3 ensemble, weight 1.5).
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v22/
+
+Files:
+  - performance_v22.csv
+  - detailed_results_v22.csv
+  - champion_confusion_v22.png
+  - roc_curve_v22.png
+  - pr_curve_v22.png
+  - prediction_distribution_v22.png
+  - summary_v22.txt
+
+======================================================================
+Generated: 2026-07-04 09:00:51
+======================================================================
