@@ -1,0 +1,15 @@
+Metric,Value
+True Negatives,1040
+False Positives,63
+False Negatives,138
+True Positives,965
+Threshold,0.6
+CV Folds (base),10
+CV Folds (meta),5
+Base Models,10
+Meta Models,5
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+Optuna XGB trials,20
+Optuna RF trials,20
+Meta-stacking method,Logistic Regression on OOF probabilities
