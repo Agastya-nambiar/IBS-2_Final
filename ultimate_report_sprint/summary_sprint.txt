@@ -1,0 +1,24 @@
+
+======================================================================
+v25-SPRINT FINAL REPORT
+======================================================================
+
+F1:        0.8881
+AUC-ROC:   0.9521
+AUC-PR:    0.9575
+Accuracy:  0.8871
+Precision: 0.8806
+Recall:    0.8957
+Sensitivity: 0.8957
+Specificity: 0.8785
+
+Threshold: 0.4102
+
+Models: RF, XGB, LR, KNN
+Stacking: 3-fold
+Features: ESM2 200 + PEPE 200 + AAC+length (21)
+SMOTE: applied
+Meta: LR
+Runtime: < 5 minutes (P100)
+
+======================================================================
