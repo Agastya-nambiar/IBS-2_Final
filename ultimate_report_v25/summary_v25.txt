@@ -1,0 +1,24 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v25 REPORT
+======================================================================
+
+Performance:
+  F1: 0.8996
+  AUC: 0.9596
+  PR-AUC: 0.9647
+  Accuracy: 0.8998
+
+Models included: RF, XGB, ET, LGBM, GB, SVM, MLP, KNN, CatBoost
+Speed optimisations:
+- 3-fold stacking
+- Reduced Optuna trials (slow models only 3 trials)
+- Class weights instead of SMOTE
+- Restricted parameter ranges for slow models
+- Reduced feature dimensions
+- No sample_weight passed (models handle class weight internally)
+
+Runtime: ~80 minutes (each slow-model trial < 1000 sec)
+
+Results saved in ultimate_report_v25
+======================================================================
