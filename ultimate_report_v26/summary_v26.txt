@@ -1,0 +1,49 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v26 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+  F1 Score:        0.8989
+  AUC-ROC:         0.9605
+  AUC-PR:          0.9647
+  Accuracy:        0.8962
+  Precision:       0.8761
+  Recall:          0.9229
+  Sensitivity:     0.9229
+  Specificity:     0.8694
+
+CONFUSION MATRIX:
+  True Negatives:  959
+  False Positives: 144
+  False Negatives: 85
+  True Positives:  1018
+
+======================================================================
+v26 FEATURES
+======================================================================
+- Fixed-length descriptors including tripeptides (1000) and 4-mers (500)
+- Robust error handling
+- VotingClassifier as extra base model
+- Diversity meta-features (std, min, max, range)
+- MLP meta-model
+- Optimised weights with fallback to average
+- Platt scaling and fine-grained F1 threshold
+
+Runtime: ~1.5-2 hours
+
+======================================================================
+FILES GENERATED
+======================================================================
+Results Directory: ultimate_report_v26/
+  - performance_v26.csv
+  - detailed_results_v26.csv
+  - champion_confusion_v26.png
+  - roc_curve_v26.png
+  - pr_curve_v26.png
+  - prediction_distribution_v26.png
+  - summary_v26.txt
+
+Generated: 2026-07-09 21:18:15
+======================================================================

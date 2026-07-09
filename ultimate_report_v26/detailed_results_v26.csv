@@ -1,0 +1,13 @@
+Metric,Value
+True Negatives,959
+False Positives,144
+False Negatives,85
+True Positives,1018
+Threshold,0.366
+CV Folds,3
+Base Models,11
+Meta Models,4
+Toxic Weight Multiplier,1.5
+4-mers used,500
+VotingClassifier included,Yes
+MLP meta-model,Yes
