@@ -1,0 +1,14 @@
+Metric,Value
+True Negatives,1028
+False Positives,75
+False Negatives,125
+True Positives,978
+Threshold,0.5806451612903226
+CV Folds,10
+Base Models,10
+Meta Models (top3 used),3
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+Optuna XGB trials,20
+Optuna RF trials,20
+MLP meta-model,Yes

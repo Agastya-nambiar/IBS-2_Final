@@ -1,0 +1,61 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v6 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9072
+  AUC-ROC:         0.9663
+  AUC-PR:          0.9668
+
+SECONDARY METRICS:
+  Accuracy:        0.9093
+  Precision:       0.9288
+  Recall:          0.8867
+  Sensitivity:     0.8867
+  Specificity:     0.9320
+  False Pos Rate:  0.0680
+  False Neg Rate:  0.1133
+
+CONFUSION MATRIX:
+  True Negatives:  1028
+  False Positives: 75
+  False Negatives: 125
+  True Positives:  978
+
+======================================================================
+v6 IMPROVEMENTS (over v5)
+======================================================================
+
+1. ✅ OPTUNA HYPERPARAMETER TUNING for XGB and RF (20 trials each)
+   - Tailors base models to your specific dataset
+2. ✅ ADDED CTD DESCRIPTORS (Composition, Transition, Distribution)
+   - Provides additional sequence pattern information
+3. ✅ ADDED MOLECULAR WEIGHT and NET CHARGE features
+   - Physicochemical properties relevant to peptide toxicity
+4. ✅ MLP META-MODEL on top-3 probabilities
+   - Learns non-linear combinations of best meta-models
+
+All v5 components retained (1000 tripeptides, combined weighting, Youden threshold, isotonic).
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v6/
+
+Files:
+  - performance_v6.csv
+  - detailed_results_v6.csv
+  - champion_confusion_v6.png
+  - roc_curve_v6.png
+  - pr_curve_v6.png
+  - prediction_distribution_v6.png
+  - summary_v6.txt
+
+======================================================================
+Generated: 2026-07-11 09:22:22
+======================================================================
