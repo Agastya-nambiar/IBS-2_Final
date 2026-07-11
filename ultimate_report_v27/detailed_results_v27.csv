@@ -1,0 +1,12 @@
+Metric,Value
+True Negatives,989
+False Positives,114
+False Negatives,109
+True Positives,994
+Threshold,0.474
+CV Folds,3
+Base Models,8
+Meta Models,4
+Toxic Weight Multiplier,1.5
+Motifs used,tri/4/5-mers
+Cross-correlation,Yes

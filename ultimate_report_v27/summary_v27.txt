@@ -1,0 +1,48 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v27 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+  F1 Score:        0.8991
+  AUC-ROC:         0.9594
+  AUC-PR:          0.9632
+  Accuracy:        0.8989
+  Precision:       0.8971
+  Recall:          0.9012
+  Sensitivity:     0.9012
+  Specificity:     0.8966
+
+CONFUSION MATRIX:
+  True Negatives:  989
+  False Positives: 114
+  False Negatives: 109
+  True Positives:  994
+
+======================================================================
+v27 FEATURES
+======================================================================
+- Added 5-mer frequencies (top 300)
+- Added cross-correlation (3 lags)
+- Optimised for speed: CPU parallel, 10 trials for key models, 2 for others
+- Removed slow models (SVM, MLP, KNN) – still using RF, XGB, LGBM, ET, GB, LR, CatBoost
+- 3-fold stacking
+- Diversity meta-features
+
+Runtime: ~2 hours
+
+======================================================================
+FILES GENERATED
+======================================================================
+Results Directory: ultimate_report_v27/
+  - performance_v27.csv
+  - detailed_results_v27.csv
+  - champion_confusion_v27.png
+  - roc_curve_v27.png
+  - pr_curve_v27.png
+  - prediction_distribution_v27.png
+  - summary_v27.txt
+
+Generated: 2026-07-11 05:15:54
+======================================================================
