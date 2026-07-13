@@ -1,0 +1,18 @@
+Metric,Value
+True Negatives,980
+False Positives,123
+False Negatives,86
+True Positives,1017
+Threshold (Youden),0.5061728395061729
+Threshold (sensitivity),0.2005420054200542
+CV Folds (stacking),10
+CV Folds (meta OOF),5
+Base Models,10
+Meta Models (top3 used),3
+MLP meta used,False
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+CKSAAP max k,3
+Optuna XGB trials,20
+Optuna RF trials,20
+Optuna LGBM trials,20

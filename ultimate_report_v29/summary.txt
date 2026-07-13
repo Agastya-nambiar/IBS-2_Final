@@ -1,0 +1,48 @@
+
+======================================================================
+PEPTIDE TOXICITY PREDICTION — v29 FINAL REPORT
+======================================================================
+
+HONEST HELD-OUT PERFORMANCE (Validation.csv touched exactly once):
+  F1 Score:        0.9068
+  AUC-ROC:         0.9657
+  AUC-PR:          0.9674
+  Accuracy:        0.9053
+  Precision:       0.8921
+  Recall:          0.9220
+  Sensitivity:     0.9220
+  Specificity:     0.8885
+
+FOR COMPARISON — what v6's leaky method would have reported on this same run:
+  F1: 0.9086  |  AUC: 0.9683
+  (See leakage_check.csv for the full gap.)
+
+CONFUSION MATRIX:  TN=980  FP=123  FN=86  TP=1017
+
+======================================================================
+WHAT CHANGED FROM v6 (and v28)
+======================================================================
+1. Fixed validation leakage: meta-model selection, blend weights, MLP-meta,
+   isotonic calibration, and threshold are now all chosen via 5-fold OOF CV
+   on TRAINING data only. Validation.csv is used once, to report a score.
+2. Added CKSAAP (k=1-3) and DDE descriptors (standard iFeature-family
+   features not in v6), feeding the same feature-selection step you had.
+3. Extended Optuna tuning to LightGBM; tuning objective is now 3-fold CV
+   instead of a single 80/20 split.
+4. Blend weights for the top-3 meta-ensemble are OOF-optimized (scipy) when
+   that beats the original heuristic; otherwise falls back to the heuristic.
+5. MLP-meta-model is only kept if it improves OOF AUC (v6 always averaged
+   it in unconditionally).
+6. Added a sensitivity-favoring threshold option alongside Youden's, per
+   ToxTeller's recommendation that toxicity screening should weight
+   false negatives more heavily.
+7. Removed dead `use_label_encoder` param (silently deprecated in current
+   XGBoost, was spamming warnings). Fixed O(n) tripeptide lookup -> O(1).
+8. GitHub token now loaded from environment, not hardcoded.
+9. v28 added a 102-descriptor QSAR block (`peptides` lib), calibration
+   selection, top-k meta-ensemble choice, and meta-layer seed-bagging.
+10. v29 is a version bump; no functional changes.
+
+======================================================================
+Generated: 2026-07-13 22:51:36
+======================================================================
