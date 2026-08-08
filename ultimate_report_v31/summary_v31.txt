@@ -1,0 +1,61 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v31 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9099
+  AUC-ROC:         0.9675
+  AUC-PR:          0.9669
+
+SECONDARY METRICS:
+  Accuracy:        0.9125
+  Precision:       0.9375
+  Recall:          0.8840
+  Sensitivity:     0.8840
+  Specificity:     0.9411
+  False Pos Rate:  0.0589
+  False Neg Rate:  0.1160
+
+CONFUSION MATRIX:
+  True Negatives:  1038
+  False Positives: 65
+  False Negatives: 128
+  True Positives:  975
+
+======================================================================
+v31 IMPROVEMENTS (over previous versions)
+======================================================================
+
+1. ✅ OPTUNA HYPERPARAMETER TUNING for XGB and RF (20 trials each)
+   - Tailors base models to your specific dataset
+2. ✅ ADDED CTD DESCRIPTORS (Composition, Transition, Distribution)
+   - Provides additional sequence pattern information
+3. ✅ ADDED MOLECULAR WEIGHT and NET CHARGE features
+   - Physicochemical properties relevant to peptide toxicity
+4. ✅ MLP META-MODEL on top-3 probabilities
+   - Learns non-linear combinations of best meta-models
+
+All previous components retained (1000 tripeptides, combined weighting, Youden threshold, isotonic).
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v31/
+
+Files:
+  - performance_v31.csv
+  - detailed_results_v31.csv
+  - champion_confusion_v31.png
+  - roc_curve_v31.png
+  - pr_curve_v31.png
+  - prediction_distribution_v31.png
+  - summary_v31.txt
+
+======================================================================
+Generated: 2026-08-08 18:37:52
+======================================================================
