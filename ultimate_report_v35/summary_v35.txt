@@ -1,0 +1,59 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v35 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9048
+  AUC-ROC:         0.9657
+  AUC-PR:          0.9658
+
+SECONDARY METRICS:
+  Accuracy:        0.9044
+  Precision:       0.9004
+  Recall:          0.9093
+  Sensitivity:     0.9093
+  Specificity:     0.8994
+  False Pos Rate:  0.1006
+  False Neg Rate:  0.0907
+
+CONFUSION MATRIX:
+  True Negatives:  992
+  False Positives: 111
+  False Negatives: 100
+  True Positives:  1003
+
+======================================================================
+v35 ENHANCEMENTS
+======================================================================
+1. ✅ Expanded physicochemical properties (20 instead of 8)
+2. ✅ Fast Optuna tuning with pruning and early stopping
+   - XGB/RF: 20 trials, LGBM/ET: 15, GB: 5 (very fast)
+3. ✅ Platt scaling on each base model before stacking
+4. ✅ Second-level stacking: Ridge + MLP on top-4 meta-probabilities
+5. ✅ Cross-validated threshold selection (5-fold on validation)
+6. ✅ All previous components retained (CTD, tripeptides, isotonic, etc.)
+7. ✅ Fixed CatBoost: removed subsample parameter
+8. ✅ Fixed meta‑MLP: sample_weight fallback
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v35/
+
+Files:
+  - performance_v35.csv
+  - detailed_results_v35.csv
+  - champion_confusion_v35.png
+  - roc_curve_v35.png
+  - pr_curve_v35.png
+  - prediction_distribution_v35.png
+  - summary_v35.txt
+
+======================================================================
+Generated: 2026-08-12 16:51:06
+======================================================================
