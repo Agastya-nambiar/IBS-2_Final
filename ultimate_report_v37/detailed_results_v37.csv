@@ -1,0 +1,20 @@
+Metric,Value
+True Negatives,972
+False Positives,131
+False Negatives,83
+True Positives,1020
+Threshold,0.33999999999999997
+CV Folds (base),10
+CV Folds (threshold),5
+Base Models,10
+Meta Models (top4),4
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+Optuna XGB trials,20
+Optuna RF trials,20
+Optuna LGBM trials,15
+Optuna ET trials,15
+Optuna GB trials,5
+MLP meta-model,Yes
+Platt scaling,Yes
+Deep Models,"Improved Transformer, ESM-2 (fine-tuned)"
