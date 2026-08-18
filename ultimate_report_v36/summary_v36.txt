@@ -1,0 +1,74 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v36 FINAL REPORT
+======================================================================
+
+🏆 CHAMPION ENSEMBLE PERFORMANCE (holdout split, n=1103 - never used for
+   fitting/selecting anything above, so this is the honest read of generalization)
+======================================================================
+
+PRIMARY METRICS:
+  F1 Score:        0.9065
+  AUC-ROC:         0.9646
+  AUC-PR:          0.9637
+
+SECONDARY METRICS:
+  Accuracy:        0.9057
+  Precision:       0.8984
+  Recall:          0.9147
+  Sensitivity:     0.9147
+  Specificity:     0.8967
+  False Pos Rate:  0.1033
+  False Neg Rate:  0.0853
+
+FOR COMPARISON - cal split (n=1103, used to fit the blend weight, the isotonic
+calibrator, the threshold, and top-4 meta-model selection):
+  F1 Score:        0.9045
+  AUC-ROC:         0.9648
+
+CONFUSION MATRIX (holdout):
+  True Negatives:  495
+  False Positives: 57
+  False Negatives: 47
+  True Positives:  504
+
+======================================================================
+v36 CHANGES FROM v37
+======================================================================
+1. FIXED validation leakage: blend weight / isotonic calibration / threshold / top-4
+   meta-model selection now all fit on a "cal" split of Validation.csv only; "holdout"
+   is untouched until the metrics above. v37 fit and reported on the same rows, which
+   inflates the reported score.
+2. FASTER: swapped GradientBoostingClassifier -> HistGradientBoostingClassifier for the
+   slow base model (was the single biggest time sink - ~50 min for 5 Optuna trials
+   alone). Trial budget raised to 20 since it's cheap now.
+3. FIXED: RF/XGB/ET/LGBM were losing random_state, n_jobs, and their class weighting
+   when rebuilt from `study.best_params` for the real training run. Restored - training
+   now matches what was actually tuned, and RF/ET run multi-core again.
+4. The trad/deep blend weight is now grid-searched to directly maximize F1 on the cal
+   split instead of a fixed AUC-ratio heuristic.
+5. GitHub token now comes from the GITHUB_TOKEN environment variable, never hardcoded.
+6. Misc: O(1) dict lookup for tripeptide counting (was an O(n) list .index() call per
+   hit), shallow clone for the embeddings download, dropped the unused
+   facebookresearch/esm install and a dead Ridge/MLP meta-meta step, removed the
+   deprecated XGBoost `use_label_encoder` argument.
+
+======================================================================
+FILES GENERATED
+======================================================================
+
+Results Directory: ultimate_report_v36/
+
+Files:
+  - performance_v36.csv          (holdout metrics)
+  - cal_vs_holdout_v36.csv       (side-by-side comparison)
+  - detailed_results_v36.csv
+  - champion_confusion_v36.png
+  - roc_curve_v36.png
+  - pr_curve_v36.png
+  - prediction_distribution_v36.png
+  - summary_v36.txt
+
+======================================================================
+Generated: 2026-08-18 07:42:29
+======================================================================

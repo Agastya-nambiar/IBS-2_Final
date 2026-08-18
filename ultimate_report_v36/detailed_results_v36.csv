@@ -1,0 +1,21 @@
+Metric,Value
+True Negatives (holdout),495
+False Positives (holdout),57
+False Negatives (holdout),47
+True Positives (holdout),504
+Threshold,0.42
+Val cal size,1103
+Val holdout size,1103
+CV Folds (base stacking),10
+CV Folds (threshold search),5
+Base Models,10
+Meta Models (top4),4
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+Optuna XGB trials,20
+Optuna RF trials,20
+Optuna LGBM trials,15
+Optuna ET trials,15
+Optuna GB trials,20
+Platt scaling,Yes
+Deep Models,"Improved Transformer, ESM-2 (fine-tuned)"
