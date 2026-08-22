@@ -1,0 +1,29 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v38 FINAL REPORT (HONEST HOLDOUT)
+======================================================================
+
+GPU T4x2
+
+HOLDOUT PERFORMANCE
+  F1:           0.9055
+  AUC-ROC:      0.9630
+  AUC-PR:       0.9647
+  Accuracy:     0.9058
+  Precision:    0.9088
+  Recall:       0.9022
+  Sensitivity:  0.9022
+  Specificity:  0.9094
+  CM:           TN=251, FP=25, FN=27, TP=249
+
+CHANGES IN v42
+  - Fixed roc_curve/precision_recall_curve import (v70 error)
+  - Re-added MLP and SVM for more diversity
+  - F1-max threshold (instead of cost‑sensitive)
+  - Toxic weight multiplier: 2.0 (boosts recall)
+  - Optuna: 30 trials for XGB/RF/LGBM (was 20)
+  - 5‑fold stacking keeps runtime ~5‑6h
+
+FILES
+  Report:  ultimate_report_v38/
+  Models:  saved_model_v38/
