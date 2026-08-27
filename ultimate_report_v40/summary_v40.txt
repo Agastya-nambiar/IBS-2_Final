@@ -1,0 +1,30 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v40 FINAL REPORT (HONEST HOLDOUT)
+======================================================================
+
+GPU T4/P100
+
+HOLDOUT PERFORMANCE
+  F1:           0.8911
+  F2:           0.9333
+  AUC-ROC:      0.9683
+  AUC-PR:       0.9725
+  Accuracy:     0.8822
+  Precision:    0.8287
+  Recall:       0.9638
+  Sensitivity:  0.9638
+  Specificity:  0.8007
+  CM:           TN=221, FP=55, FN=10, TP=266
+
+
+  - 4‑mer frequency features (500 top 4‑mers)
+  - Mutual‑info + RF feature selection (union of top features)
+  - Neural Network meta‑learner (Level‑2) with batch norm & dropout
+  - Platt scaling for better calibration
+  - Fβ (β=2) threshold optimisation (prioritises recall)
+  - Toxic weight multiplier = 2.5
+  - Reduced Optuna trials (15/30/15/10/5) and narrower search spaces to fit in 12h.
+
+FILES
+  Report:  ultimate_report_v40/

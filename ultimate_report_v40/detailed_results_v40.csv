@@ -1,0 +1,14 @@
+Metric,Value
+True Negatives,221
+False Positives,55
+False Negatives,10
+True Positives,266
+Threshold,0.21555183946488293
+Cal size,1654
+Hold size,552
+Base Models,11
+Meta Models,5
+Toxic weight,2.5
+Tripeptides,1500
+4-mers,500
+"Optuna trials (XGB,RF,LGBM,ET,GB)","15,30,15,10,5"
