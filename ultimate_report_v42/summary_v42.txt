@@ -1,0 +1,28 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v42 (HONEST HOLDOUT)
+======================================================================
+HOLDOUT PERFORMANCE
+  F1:           0.8709
+  F2:           0.9183
+  AUC-ROC:      0.9651
+  AUC-PR:       0.9684
+  Accuracy:     0.8587
+  Precision:    0.8018
+  Recall:       0.9529
+  Sensitivity:  0.9529
+  Specificity:  0.7645
+  CM:           TN=211, FP=65, FN=13, TP=263
+
+KEY CHANGES (v42 vs v41)
+  - Removed the hardcoded GitHub token (now read from GITHUB_TOKEN env var)
+  - Removed the separate 3-seed full-data bagged refit; the 5 OOF fold
+    models per base learner are reused directly as a free bag instead
+    (optional RETRAIN_FULL_TOPUP_SEEDS to add cheap top-up fits back)
+  - RF/ET Optuna trials tune structure at a small fixed n_estimators,
+    then scale tree count up only for the deployed model
+  - Optuna trials and MI/RF feature-ranking now run on a capped
+    stratified subsample of the training data when it's large
+  - Shallow (--depth 1) git clone for embedding downloads
+  - Removed dead imports (GradientBoostingClassifier, CalibratedClassifierCV)
+======================================================================
