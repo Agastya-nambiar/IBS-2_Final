@@ -1,0 +1,14 @@
+Metric,Value
+TN,220
+FP,56
+FN,14
+TP,262
+Threshold,0.1342809364548495
+Cal size,1654
+Hold size,552
+Base Models,7
+Meta Models,3
+Toxic weight,2.5
+Tripeptides,1000
+4-mers,300
+"Optuna (XGB,RF,LGBM,ET)","10,10,10,3"

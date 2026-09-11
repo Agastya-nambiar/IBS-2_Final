@@ -1,0 +1,30 @@
+
+======================================================================
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v41 (HONEST HOLDOUT)
+======================================================================
+HOLDOUT PERFORMANCE
+  F1:           0.8822
+  F2:           0.9212
+  AUC-ROC:      0.9683
+  AUC-PR:       0.9715
+  Accuracy:     0.8732
+  Precision:    0.8239
+  Recall:       0.9493
+  Sensitivity:  0.9493
+  Specificity:  0.7971
+  CM:           TN=220, FP=56, FN=14, TP=262
+
+FIXES vs earlier v41
+  - CatBoost bagging crash fixed (only random_seed for CatBoost,
+    never both random_seed + random_state)
+  - Runtime cut ~2.5x: 3-fold stacking (was 5), Optuna 10/10/10/3
+    (was 15/15/15/5), feature caps 600/350/600 (was 800/500/900)
+  - Fixed "Toxic: 882600.00%" formatting bug
+
+KEPT FROM v41
+  - 7 base models (RF, XGB, ET, LGBM, LR, MLP, CatBoost)
+  - 3-seed bagging on final refit
+  - LR + XGB + LGBM meta-ensemble, LR blender on OOF metas
+  - Platt scaling, Fβ (β=2) threshold optimisation
+  - Toxic weight 2.5 applied once via sample_weight
+======================================================================
