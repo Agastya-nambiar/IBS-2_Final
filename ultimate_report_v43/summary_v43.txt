@@ -1,16 +1,30 @@
 
 ======================================================================
-ULTIMATE PEPTIDE TOXICITY PREDICTION - v43 (HONEST HOLDOUT)
+ULTIMATE PEPTIDE TOXICITY PREDICTION - v43 FINAL REPORT (HONEST HOLDOUT)
 ======================================================================
+
+GPU RTX 4050
+
 HOLDOUT PERFORMANCE
-  F1:           0.8840
-  F2:           0.9241
-  AUC-ROC:      0.9675
-  AUC-PR:       0.9704
-  Accuracy:     0.8750
-  Precision:    0.8245
-  Recall:       0.9529
-  Sensitivity:  0.9529
+  F1:           0.8878
+  F2:           0.9298
+  AUC-ROC:      0.9701
+  AUC-PR:       0.9735
+  Accuracy:     0.8786
+  Precision:    0.8255
+  Recall:       0.9601
+  Sensitivity:  0.9601
   Specificity:  0.7971
-  CM:           TN=220, FP=56, FN=13, TP=263
-======================================================================
+  CM:           TN=220, FP=56, FN=11, TP=265
+
+v43:
+  - 4-mer frequency features (500 top 4-mers)
+  - Mutual-info + RF feature selection (union of top features)
+  - Neural Network meta-learner (Level-2) with batch norm and dropout
+  - Platt scaling for better calibration
+  - F beta (beta=2) threshold optimisation (prioritises recall)
+  - Toxic weight multiplier = 2.5
+  - Reduced Optuna trials (15/30/15/10/5) and narrower search spaces to fit in 12h.
+
+FILES
+  Report:  ultimate_report_v43/
