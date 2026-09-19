@@ -1,0 +1,43 @@
+
+======================================================================
+PEPTIDE TOXICITY PREDICTION — v49 FINAL REPORT
+======================================================================
+ESM 3B
+GPU T4x2
+HONEST HELD-OUT PERFORMANCE (Validation.csv touched exactly once):
+  F1 Score:        0.9115
+  AUC-ROC:         0.9676
+  AUC-PR:          0.9687
+  Accuracy:        0.9116
+  Precision:       0.9127
+  Recall:          0.9102
+  Sensitivity:     0.9102
+  Specificity:     0.9130
+
+FOR COMPARISON — what the v6-style leaky method would have reported on this run:
+  F1: 0.9157  |  AUC: 0.9700
+  (See leakage_check.csv for the full gap.)
+
+CONFUSION MATRIX:  TN=1007  FP=96  FN=99  TP=1004
+
+======================================================================
+WHAT v49 CHANGED FROM v30
+======================================================================
+1. ESM2 embeddings: raw_embeddings_both/ESM2_3B/ (2560-dim) instead of
+   raw_embeddings/ESM2/ (320-dim).
+2. MAX_FEATURES_ESM2: 600 -> 1500 (input dim grew 8x, old cap would
+   discard ~94% of the new signal).
+3. Auto-download now also pulls raw_embeddings_both/.
+4. Sanity check at SECTION 6 confirms 2560-dim was actually loaded.
+
+Everything else is identical to v30:
+- Leak-free protocol (all meta decisions via 5-fold OOF on train).
+- CKSAAP + DDE descriptors.
+- Optuna tuning for XGB/RF/LGBM (3-fold CV objective).
+- Top-3 meta-ensemble with OOF-optimized blend weights.
+- MLP-meta kept only if it improves OOF AUC.
+- Isotonic calibration + Youden/sensitivity thresholds (OOF-selected).
+
+======================================================================
+Generated: 2026-09-19 17:35:25
+======================================================================
