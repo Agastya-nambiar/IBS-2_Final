@@ -1,0 +1,47 @@
+
+======================================================================
+PEPTIDE TOXICITY PREDICTION — v50 FINAL REPORT
+======================================================================
+ESM 650M (1280-dim)
+GPU T4x2
+HONEST HELD-OUT PERFORMANCE (Validation.csv touched exactly once):
+  F1 Score:        0.9118
+  AUC-ROC:         0.9670
+  AUC-PR:          0.9674
+  Accuracy:        0.9098
+  Precision:       0.8924
+  Recall:          0.9320
+  Sensitivity:     0.9320
+  Specificity:     0.8876
+
+FOR COMPARISON — what the v6-style leaky method would have reported on this run:
+  F1: 0.9142  |  AUC: 0.9695
+  (See leakage_check.csv for the full gap.)
+
+CONFUSION MATRIX:  TN=979  FP=124  FN=75  TP=1028
+
+======================================================================
+WHAT v50 CHANGED FROM v30 (and how it relates to v49)
+======================================================================
+1. ESM2 embeddings: raw_embeddings_both/ESM2_650M/ (1280-dim) instead of
+   raw_embeddings/ESM2/ (320-dim).
+2. MAX_FEATURES_ESM2: 600 -> 1000 (~78% retention of the 1280-dim input).
+3. Auto-download now also pulls raw_embeddings_both/.
+4. Sanity check at SECTION 6 confirms 1280-dim was actually loaded.
+
+Companion ablation (same pipeline, different ESM2 checkpoint):
+   v30 -> ESM2    320-dim  (raw_embeddings/ESM2/)
+   v50 -> ESM2-650M 1280-dim (raw_embeddings_both/ESM2_650M/)  <- this run
+   v49 -> ESM2-3B  2560-dim (raw_embeddings_both/ESM2_3B/)
+
+Everything else is identical to v30/v49:
+- Leak-free protocol (all meta decisions via 5-fold OOF on train).
+- CKSAAP + DDE descriptors.
+- Optuna tuning for XGB/RF/LGBM (3-fold CV objective).
+- Top-3 meta-ensemble with OOF-optimized blend weights.
+- MLP-meta kept only if it improves OOF AUC.
+- Isotonic calibration + Youden/sensitivity thresholds (OOF-selected).
+
+======================================================================
+Generated: 2026-09-19 15:49:24
+======================================================================
