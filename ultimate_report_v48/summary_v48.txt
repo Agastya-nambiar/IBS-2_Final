@@ -1,0 +1,42 @@
+
+======================================================================
+PEPTIDE TOXICITY PREDICTION — v48
+======================================================================
+
+ESM2 source: raw_embeddings_bigger/ESM2  (raw dim 1280, kept 211)
+
+HELD-OUT PERFORMANCE (Validation.csv touched exactly once):
+  F1 Score:        0.9152
+  AUC-ROC:         0.9671
+  AUC-PR:          0.9691
+  Accuracy:        0.9152
+  Precision:       0.9156
+  Recall:          0.9148
+  Specificity:     0.9157
+
+CONFUSION MATRIX:  TN=1010  FP=93  FN=94  TP=1009
+
+SAFETY-SCREEN OPERATING POINT (threshold 0.2211):
+  Recall=0.9610  Precision=0.8243  F1=0.8874
+  FN=43 (vs 94 at the reported threshold)
+
+LEAKAGE CHECK (diagnostic):
+  v33/v34-style leaky: F1=0.9167, AUC=0.9692
+  Honest:              F1=0.9152, AUC=0.9671
+  Gap: F1 +0.0015, AUC +0.0022
+
+======================================================================
+HOW TO COMPARE THIS AGAINST OTHER RUNS
+======================================================================
+Compare AUC-PR and AUC-ROC, not F1. F1 depends on the threshold, and
+the threshold moves between runs, so an F1 difference can be entirely
+an operating-point artifact rather than a real modelling difference.
+
+Any number produced by v33 or v34 is not comparable to this one. Those
+scripts selected the meta-models, fit the MLP-meta, fit the isotonic
+calibration, and chose the threshold all against y_val — the same
+labels they then reported against.
+
+======================================================================
+Generated: 2026-09-19 15:52:01
+======================================================================

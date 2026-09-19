@@ -1,0 +1,29 @@
+Metric,Value
+ESM2 source,raw_embeddings_bigger/ESM2
+ESM2 raw dim,1280
+ESM2 kept,211
+PEPE kept,102
+Conventional kept,900
+Total features,1213
+Select mode,mean
+Threshold mode,youden
+Threshold used,0.5
+Threshold (Youden),0.5
+Threshold (F1),0.455
+Threshold (sensitivity),0.22105263157894736
+True Negatives,1010
+False Positives,93
+False Negatives,94
+True Positives,1009
+FN at sensitivity threshold,43
+Base Models,10
+Top-3 meta,"rf,gb,lgbm"
+MLP meta used,False
+Toxic Weight Multiplier,1.5
+Tripeptides,1000
+CKSAAP max k,3
+Stacking folds,10
+Meta OOF folds,5
+Optuna XGB,20
+Optuna RF,20
+Optuna LGBM,20
