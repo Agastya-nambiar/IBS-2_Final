@@ -1,0 +1,48 @@
+
+======================================================================
+PEPTIDE TOXICITY PREDICTION — v44 (all leakage fixes applied)
+======================================================================
+
+METHODOLOGY (v49 changes vs v48):
+  - Feature selection + scaling now fit inside every CV fold
+    (Section 8 / 12). v48 fit them once on the full training set.
+  - Base weighted-average meta-feature is recomputed inside every
+    meta-OOF fold (Section 14). v48 computed it once from all
+    training labels.
+  - Blend weights are heuristic softmax, not Nelder-Mead on the
+    same OOF used for top-3 selection (Section 15).
+  - Leakage diagnostic re-implements the full v33/v34 leaky pipeline
+    (select top-3, MLP-meta, isotonic, threshold all on y_val).
+
+ESM2 source: raw_embeddings_bigger/ESM2  (raw dim 1280)
+
+HELD-OUT PERFORMANCE:
+  F1 Score:        0.9124
+  AUC-ROC:         0.9670
+  AUC-PR:          0.9673
+  Precision:       0.9046
+  Recall:          0.9202
+  Specificity:     0.9030
+
+CONFUSION MATRIX:  TN=996  FP=107  FN=88  TP=1015
+
+SAFETY-SCREEN OPERATING POINT (0.1958):
+  Recall=0.9773  Precision=0.7613  F1=0.8559
+  FN=25 (vs 88 at the reported threshold)
+
+LEAKAGE CHECK (full v33/v34-style):
+  Leaky:  F1=0.9150, AUC=0.9707
+  Honest: F1=0.9124, AUC=0.9670
+  Gap:    F1 +0.0026, AUC +0.0037
+
+REMAINING KNOWN LIMITATION (not fixed, by design):
+  Optuna hyperparameters are selected on a CV of the full training
+  set and then re-used inside the stacking folds. This is the standard
+  non-nested approximation. A fully nested version would re-run Optuna
+  inside every outer fold and cost ~10x the compute. The optimism is
+  contained: the val set is still untouched, so the reported held-out
+  number is unaffected. Compare runs on AUC-PR, not F1.
+
+======================================================================
+Generated: 2026-09-21 11:14:06
+======================================================================

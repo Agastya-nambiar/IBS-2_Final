@@ -1,0 +1,66 @@
+{
+  "VERSION": "v44",
+  "RANDOM_STATE": 42,
+  "ESM2_DIR_CANDIDATES": [
+    "raw_embeddings_both/ESM2",
+    "raw_embeddings_bigger/ESM2",
+    "raw_embeddings/ESM2"
+  ],
+  "PEPE_DIR": "raw_embeddings/PEPE",
+  "ESM2_DIR_OVERRIDE": null,
+  "SELECT_MODE": "mean",
+  "MAX_FEATURES_ESM2": 600,
+  "MAX_FEATURES_PEPE": 500,
+  "MAX_FEATURES_CONV": 900,
+  "N_CV_FOLDS_STACKING": 10,
+  "N_CV_FOLDS_META_OOF": 5,
+  "OPTUNA_TRIALS_XGB": 20,
+  "OPTUNA_TRIALS_RF": 20,
+  "OPTUNA_TRIALS_LGBM": 20,
+  "OPTUNA_CV_FOLDS": 3,
+  "CKSAAP_MAX_K": 3,
+  "N_TRIPEPTIDES": 1000,
+  "TOXIC_WEIGHT_MULTIPLIER": 1.5,
+  "SENSITIVITY_TARGET": 0.95,
+  "THRESHOLD_MODE": "youden",
+  "PUSH_TO_GITHUB": true,
+  "ESM2_DIR_USED": "raw_embeddings_bigger/ESM2",
+  "ESM2_RAW_DIM": 1280,
+  "ESM2_COMBINED_DIM_DEPLOY": 1213,
+  "xgb_params": {
+    "n_estimators": 550,
+    "max_depth": 10,
+    "learning_rate": 0.07330561510986312,
+    "subsample": 0.7423698595680692,
+    "colsample_bytree": 0.836070546625681,
+    "gamma": 0.018658786616835787,
+    "min_child_weight": 1
+  },
+  "rf_params": {
+    "n_estimators": 650,
+    "max_depth": 17,
+    "min_samples_split": 9,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt"
+  },
+  "lgbm_params": {
+    "n_estimators": 600,
+    "max_depth": 9,
+    "num_leaves": 127,
+    "learning_rate": 0.09977019855776781,
+    "subsample": 0.6031064918375411,
+    "colsample_bytree": 0.7550376816255844,
+    "min_child_samples": 7
+  },
+  "top3_names": [
+    "rf",
+    "gb",
+    "xgb"
+  ],
+  "top3_weights": [
+    0.3334069051290053,
+    0.33321380334757383,
+    0.3333792915234209
+  ],
+  "USE_MLP_META": false
+}
