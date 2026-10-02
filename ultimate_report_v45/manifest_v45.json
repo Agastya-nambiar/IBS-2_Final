@@ -1,0 +1,531 @@
+{
+  "version": "v45",
+  "profile": "paper",
+  "generated_utc": "2026-10-02T19:01:13.949768+00:00",
+  "wallclock_minutes": 380.01,
+  "config": {
+    "VERSION": "v45",
+    "PROFILE": "paper",
+    "RANDOM_STATE": 42,
+    "TRAIN_URL": "https://raw.githubusercontent.com/Agastya-nambiar/IBS-2_Final/Dataset/not_validation.csv",
+    "VAL_URL": "https://raw.githubusercontent.com/Agastya-nambiar/IBS-2_Final/Dataset/Validation.csv",
+    "GITHUB_REPO_OWNER": "Agastya-nambiar",
+    "GITHUB_REPO_NAME": "IBS-2_Final",
+    "ESM2_TRAIN": "raw_embeddings_bigger/ESM2/train_emb.npy",
+    "ESM2_VAL": "raw_embeddings_bigger/ESM2/val_emb.npy",
+    "PEPE_TRAIN": "raw_embeddings/PEPE/train_emb.npy",
+    "PEPE_VAL": "raw_embeddings/PEPE/val_emb.npy",
+    "J_BASE_FOLDS": 10,
+    "META_OOF_FOLDS": 5,
+    "TOP_K_META": 3,
+    "SENSITIVITY_TARGET": 0.95,
+    "TOXIC_WEIGHT_MULTIPLIER": 1.5,
+    "MAX_FEATURES_ESM2": 600,
+    "MAX_FEATURES_PEPE": 500,
+    "MAX_FEATURES_CONV": 900,
+    "SELECTOR_N_ESTIMATORS": 150,
+    "SELECTOR_MAX_DEPTH": 7,
+    "N_TRIPEPTIDES": 1000,
+    "N_FOURMERS": 0,
+    "CKSAAP_MAX_K": 3,
+    "MORAN_GEARY_MAXLAG": 10,
+    "PSEAAC_LAMBDAS": [
+      10,
+      20,
+      30
+    ],
+    "USE_PEPTIDES_LIB": true,
+    "USE_BIOPYTHON_PROTPARAM": true,
+    "OPTUNA_TRIALS": 20,
+    "OPTUNA_CV_FOLDS": 3,
+    "OPTUNA_SUBSAMPLE": 6000,
+    "TUNE_N_ESTIMATORS_CAP": 400,
+    "BOOTSTRAP_B": 10000,
+    "BOOTSTRAP_SEED": 42,
+    "ECE_BINS": 10,
+    "MOTIF_ALPHA": 0.05,
+    "SVM_MAX_TRAIN": null
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "scipy": "1.16.3",
+    "optuna": "4.8.0",
+    "python": "3.12.13",
+    "catboost": "1.2.10"
+  },
+  "data": {
+    "train_rows": 8826,
+    "val_rows": 2206,
+    "train_toxic": 4413,
+    "train_sha16": "505e92909a6624b8",
+    "val_sha16": "8d320121fc884260",
+    "seq_col": "sequence",
+    "label_col": "label"
+  },
+  "features": {
+    "esm2_raw_dim": 1280,
+    "pepe_raw_dim": 480,
+    "conv_raw_dim_before_variance_filter": 3787,
+    "conv_raw_dim_used": 3771,
+    "descriptor_blocks": {
+      "aac": 20,
+      "dpc": 400,
+      "prop_stats": 40,
+      "paac_multi": 120,
+      "qso": 50,
+      "moran_geary": 400,
+      "ctd": 21,
+      "cksaap": 1200,
+      "dde": 400,
+      "cysteine": 7,
+      "toxin_motifs": 10,
+      "global": 13,
+      "protparam": 4,
+      "peptides_lib": 102,
+      "tpc": 1000,
+      "fourmer": 0
+    },
+    "selected_per_fold": [
+      1292,
+      1303,
+      1264,
+      1300,
+      1257,
+      1254,
+      1322,
+      1297,
+      1288,
+      1284
+    ],
+    "selection_fitted_per_fold": true,
+    "peptides_lib_used": true,
+    "biopython_protparam_used": true,
+    "tripeptide_vocab": 1000,
+    "fourmer_vocab": 0
+  },
+  "models": {
+    "K_base": 10,
+    "base_names": [
+      "rf",
+      "xgb",
+      "et",
+      "lgbm",
+      "gb",
+      "lr",
+      "svm",
+      "mlp",
+      "knn",
+      "cat"
+    ],
+    "base_oof_auc": {
+      "rf": 0.948098,
+      "xgb": 0.95379,
+      "et": 0.942792,
+      "lgbm": 0.954963,
+      "gb": 0.951855,
+      "lr": 0.918332,
+      "svm": 0.950304,
+      "mlp": 0.943396,
+      "knn": 0.945027,
+      "cat": 0.951072
+    },
+    "received_sample_weight": {
+      "rf": true,
+      "xgb": true,
+      "et": true,
+      "lgbm": true,
+      "gb": true,
+      "lr": true,
+      "svm": true,
+      "mlp": false,
+      "knn": false,
+      "cat": true
+    },
+    "M_meta": 5,
+    "meta_names": [
+      "lr",
+      "xgb",
+      "lgbm",
+      "rf",
+      "gb"
+    ],
+    "meta_oof_auc": {
+      "lr": 0.956851,
+      "xgb": 0.960191,
+      "lgbm": 0.959302,
+      "rf": 0.958624,
+      "gb": 0.9591
+    },
+    "catboost_available": true
+  },
+  "search": {
+    "xgb": {
+      "params": {
+        "n_estimators": 400,
+        "max_depth": 8,
+        "learning_rate": 0.02996676298799107,
+        "subsample": 0.8338435447924628,
+        "colsample_bytree": 0.9193086824158574,
+        "gamma": 1.0763588925290901,
+        "min_child_weight": 1,
+        "reg_lambda": 0.34839233441163087
+      },
+      "cv_auc": 0.9455456666666667
+    },
+    "rf": {
+      "params": {
+        "max_depth": 22,
+        "min_samples_split": 4,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt"
+      },
+      "cv_auc": 0.940954
+    },
+    "lgbm": {
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 9,
+        "num_leaves": 72,
+        "learning_rate": 0.06315174660175048,
+        "subsample": 0.8470374202600882,
+        "colsample_bytree": 0.6034166825746311,
+        "min_child_samples": 6,
+        "reg_lambda": 0.5096502392023188
+      },
+      "cv_auc": 0.946449
+    }
+  },
+  "frozen_decisions": {
+    "top_meta": [
+      "xgb",
+      "lgbm",
+      "rf"
+    ],
+    "blend_weights": [
+      0.9648511456528609,
+      0.0028923407821934274,
+      0.03225651356391042
+    ],
+    "weight_source": "oof_optimised_nested_validated",
+    "use_mlp_gate": false,
+    "calibrator": "isotonic",
+    "thresholds": {
+      "youden_j": 0.5416666666666666,
+      "sensitivity_095": 0.2192513368983957,
+      "f1_max_oof": 0.45454545454545453
+    },
+    "primary_threshold": 0.5416666666666666
+  },
+  "weights": {
+    "class_weights": {
+      "0": 1.0,
+      "1": 1.5
+    },
+    "base_auc_weights_from_oof": {
+      "rf": 0.100226,
+      "xgb": 0.100827,
+      "et": 0.099665,
+      "lgbm": 0.100951,
+      "gb": 0.100623,
+      "lr": 0.097079,
+      "svm": 0.100459,
+      "mlp": 0.099729,
+      "knn": 0.099901,
+      "cat": 0.10054
+    }
+  },
+  "results": {
+    "honest": {
+      "threshold": 0.5416666666666666,
+      "f1": 0.908499767765908,
+      "f2": 0.8952764555108019,
+      "auc_roc": 0.9672146104459197,
+      "auc_pr": 0.9699781971792862,
+      "auc_roc_calibrated": 0.9666125271142988,
+      "auc_pr_calibrated": 0.9660082287801469,
+      "n_distinct_raw": 2182,
+      "n_distinct_calibrated": 60,
+      "accuracy": 0.9106980961015413,
+      "precision": 0.9314285714285714,
+      "recall": 0.886672710788758,
+      "specificity": 0.9347234814143246,
+      "mcc": 0.8223460886215017,
+      "brier": 0.06752243732537368,
+      "log_loss": 0.2311805408169278,
+      "tn": 1031,
+      "fp": 72,
+      "fn": 125,
+      "tp": 978
+    },
+    "by_threshold": {
+      "youden_j": {
+        "threshold": 0.5416666666666666,
+        "f1": 0.908499767765908,
+        "f2": 0.8952764555108019,
+        "auc_roc": 0.9672146104459197,
+        "auc_pr": 0.9699781971792862,
+        "auc_roc_calibrated": 0.9666125271142988,
+        "auc_pr_calibrated": 0.9660082287801469,
+        "n_distinct_raw": 2182,
+        "n_distinct_calibrated": 60,
+        "accuracy": 0.9106980961015413,
+        "precision": 0.9314285714285714,
+        "recall": 0.886672710788758,
+        "specificity": 0.9347234814143246,
+        "mcc": 0.8223460886215017,
+        "brier": 0.06752243732537368,
+        "log_loss": 0.2311805408169278,
+        "tn": 1031,
+        "fp": 72,
+        "fn": 125,
+        "tp": 978
+      },
+      "sensitivity_095": {
+        "threshold": 0.2192513368983957,
+        "f1": 0.8785508439687114,
+        "f2": 0.929766469153015,
+        "auc_roc": 0.9672146104459197,
+        "auc_pr": 0.9699781971792862,
+        "auc_roc_calibrated": 0.9666125271142988,
+        "auc_pr_calibrated": 0.9660082287801469,
+        "n_distinct_raw": 2182,
+        "n_distinct_calibrated": 60,
+        "accuracy": 0.8662737987307344,
+        "precision": 0.8046757164404224,
+        "recall": 0.9673617407071623,
+        "specificity": 0.7651858567543064,
+        "mcc": 0.7479942556960114,
+        "brier": 0.06752243732537368,
+        "log_loss": 0.2311805408169278,
+        "tn": 844,
+        "fp": 259,
+        "fn": 36,
+        "tp": 1067
+      },
+      "f1_max_oof": {
+        "threshold": 0.45454545454545453,
+        "f1": 0.9079307201458523,
+        "f2": 0.9049609304015991,
+        "auc_roc": 0.9672146104459197,
+        "auc_pr": 0.9699781971792862,
+        "auc_roc_calibrated": 0.9666125271142988,
+        "auc_pr_calibrated": 0.9660082287801469,
+        "n_distinct_raw": 2182,
+        "n_distinct_calibrated": 60,
+        "accuracy": 0.9084315503173164,
+        "precision": 0.9129239230064161,
+        "recall": 0.9029918404351768,
+        "specificity": 0.9138712601994561,
+        "mcc": 0.8169114476095201,
+        "brier": 0.06752243732537368,
+        "log_loss": 0.2311805408169278,
+        "tn": 1008,
+        "fp": 95,
+        "fn": 107,
+        "tp": 996
+      }
+    }
+  },
+  "leakage": {
+    "full_diagnostic": {
+      "threshold": 0.5660377358490566,
+      "f1": 0.9110189027201475,
+      "f2": 0.9017889740781307,
+      "auc_roc": 0.9696693843297229,
+      "auc_pr": 0.9684794616189907,
+      "auc_roc_calibrated": 0.9696693843297229,
+      "auc_pr_calibrated": 0.9684794616189907,
+      "n_distinct_raw": 26,
+      "n_distinct_calibrated": 26,
+      "accuracy": 0.9125113327289212,
+      "precision": 0.926829268292683,
+      "recall": 0.8957388939256573,
+      "specificity": 0.929283771532185,
+      "mcc": 0.8254872395821027,
+      "brier": 0.06394835687367359,
+      "log_loss": 0.21636515070619938,
+      "tn": 1025,
+      "fp": 78,
+      "fn": 115,
+      "tp": 988
+    },
+    "calibration_threshold_only": {
+      "threshold": 0.5102040816326531,
+      "f1": 0.9125509741730856,
+      "f2": 0.912799129804206,
+      "auc_roc": 0.9692678584491813,
+      "auc_pr": 0.9680591131178091,
+      "auc_roc_calibrated": 0.9692678584491813,
+      "auc_pr_calibrated": 0.9680591131178091,
+      "n_distinct_raw": 24,
+      "n_distinct_calibrated": 24,
+      "accuracy": 0.9125113327289212,
+      "precision": 0.9121376811594203,
+      "recall": 0.9129646418857661,
+      "specificity": 0.9120580235720761,
+      "mcc": 0.8250230045245325,
+      "brier": 0.06430459547377218,
+      "log_loss": 0.21770433790208324,
+      "tn": 1006,
+      "fp": 97,
+      "fn": 96,
+      "tp": 1007
+    },
+    "gap_f1_full": 0.002519134954239499,
+    "gap_auc_full": 0.0024547738838032185,
+    "gap_f1_partial": 0.004051206407177599,
+    "gap_auc_partial": 0.002053248003261565,
+    "tests": {
+      "paired_auc_honest_vs_leaky": {
+        "delta_auc": 0.002456588032739904,
+        "ci_lo": 0.001455127027834202,
+        "ci_hi": 0.0034514435787522412,
+        "p_value": 0.0001
+      },
+      "mcnemar_honest_vs_leaky": {
+        "b": 15,
+        "c": 11,
+        "p_value": 0.557197093963623
+      }
+    }
+  },
+  "sensitivity": {
+    "meta_val_full_train_refit": {
+      "threshold": 0.5416666666666666,
+      "f1": 0.9079069767441861,
+      "f2": 0.8939366184282835,
+      "auc_roc": 0.9665891013464474,
+      "auc_pr": 0.9695887950685538,
+      "auc_roc_calibrated": 0.9662031926444734,
+      "auc_pr_calibrated": 0.9661509257207124,
+      "n_distinct_raw": 2140,
+      "n_distinct_calibrated": 61,
+      "accuracy": 0.9102447869446962,
+      "precision": 0.9321872015281757,
+      "recall": 0.8848594741613781,
+      "specificity": 0.9356300997280145,
+      "mcc": 0.8215490927456481,
+      "brier": 0.06733538039352514,
+      "log_loss": 0.2311224799375748,
+      "tn": 1032,
+      "fp": 71,
+      "fn": 127,
+      "tp": 976
+    }
+  },
+  "calibration": {
+    "family": "isotonic",
+    "oof_brier_by_family": {
+      "isotonic": 0.07434668323636745,
+      "platt": 0.0763883179984766,
+      "identity": 0.07565233059901037
+    },
+    "val_brier": 0.06752243732537368,
+    "ece": 0.017248304881142703
+  },
+  "conformal": {
+    "alpha": 0.05,
+    "quantiles": {
+      "0": 0.6349693251533741,
+      "1": 0.7807486631016043
+    },
+    "empirical_coverage_marginal": 0.9641885766092475,
+    "empirical_coverage_by_class": {
+      "0": 0.9610154125113327,
+      "1": 0.9673617407071623
+    },
+    "n_singleton_toxic": 968,
+    "n_singleton_nontoxic": 880,
+    "n_abstain": 358,
+    "n_empty": 0,
+    "commit_rate": 0.8377153218495014,
+    "accuracy_when_committed": 0.9572510822510822
+  },
+  "embedding_alignment": {
+    "ESM2": {
+      "train_cv_auc": 0.9102800000000001,
+      "content_r2_train_holdout": 0.9681624929269022,
+      "content_r2_val": 0.9686252559365776,
+      "verdict": "aligned"
+    },
+    "PEPE": {
+      "train_cv_auc": 0.9099759999999999,
+      "content_r2_train_holdout": 0.9657838443755655,
+      "content_r2_val": 0.9668965185925453,
+      "verdict": "aligned"
+    }
+  },
+  "sequence_cleaning": {
+    "train_modified": 0,
+    "train_emptied": 0,
+    "val_modified": 0,
+    "val_emptied": 0,
+    "train_emptied_rows": [],
+    "val_emptied_rows": []
+  },
+  "feature_selection_caps": {
+    "esm2": {
+      "cap": 600,
+      "above_mean": 288,
+      "cap_binds": false,
+      "kept": 288
+    },
+    "pepe": {
+      "cap": 480,
+      "above_mean": 96,
+      "cap_binds": false,
+      "kept": 96
+    },
+    "conv": {
+      "cap": 900,
+      "above_mean": 1211,
+      "cap_binds": true,
+      "kept": 900
+    }
+  },
+  "bootstrap": {
+    "B_requested": 10000,
+    "B_effective": 10000,
+    "seed": 42,
+    "sigma_f1": 0.0065566165372849825
+  },
+  "redundancy": {
+    "used_cdhit": false,
+    "exact_duplicates": 4,
+    "label_conflicts": 0,
+    "levels": {
+      "1.0": 4,
+      "0.9": 86,
+      "0.7": 437
+    }
+  },
+  "timings_minutes": {
+    "SECTION 1: dependencies": 0.0,
+    "SECTION 2: imports": 0.18,
+    "SECTION 3: validation-label lock": 0.32,
+    "SECTION 4: data": 0.32,
+    "SECTION 5: train/val redundancy audit": 0.33,
+    "SECTION 6: embeddings": 0.34,
+    "SECTION 7: descriptors": 0.86,
+    "SECTION 8: fold-local preprocessor": 1.99,
+    "SECTION 9: sample weights": 1.99,
+    "SECTION 10: seeded Optuna search": 1.99,
+    "SECTION 11: base learners": 55.62,
+    "SECTION 12: 10-fold base stacking": 55.62,
+    "SECTION 13: meta-feature construction": 375.87,
+    "SECTION 14: meta-learner OOF": 375.87,
+    "SECTION 15: meta selection and blending": 376.98,
+    "SECTION 16: calibration and thresholds (OOF only)": 377.11,
+    "SECTION 17: final held-out evaluation": 377.11,
+    "SECTION 18: paired bootstrap (B=10000)": 377.12,
+    "SECTION 19: leakage diagnostic": 379.31,
+    "SECTION 20: calibration quality and redundancy re-scoring": 379.93,
+    "SECTION 20b: conformal prediction sets": 379.93,
+    "SECTION 21: motif enrichment": 379.93,
+    "SECTION 22: artifacts and manifest": 380.01
+  }
+}

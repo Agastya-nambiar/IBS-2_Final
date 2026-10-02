@@ -1,0 +1,17 @@
+block,dim,start,end
+aac,20,0,20
+dpc,400,20,420
+prop_stats,40,420,460
+paac_multi,120,460,580
+qso,50,580,630
+moran_geary,400,630,1030
+ctd,21,1030,1051
+cksaap,1200,1051,2251
+dde,400,2251,2651
+cysteine,7,2651,2658
+toxin_motifs,10,2658,2668
+global,13,2668,2681
+protparam,4,2681,2685
+peptides_lib,102,2685,2787
+tpc,1000,2787,3787
+fourmer,0,3787,3787

@@ -1,0 +1,21 @@
+{
+  "top_meta": [
+    "xgb",
+    "lgbm",
+    "rf"
+  ],
+  "blend_weights": [
+    0.9648511456528609,
+    0.0028923407821934274,
+    0.03225651356391042
+  ],
+  "weight_source": "oof_optimised_nested_validated",
+  "use_mlp_gate": false,
+  "calibrator": "isotonic",
+  "thresholds": {
+    "youden_j": 0.5416666666666666,
+    "sensitivity_095": 0.2192513368983957,
+    "f1_max_oof": 0.45454545454545453
+  },
+  "primary_threshold": 0.5416666666666666
+}
