@@ -1,0 +1,10 @@
+test,p_raw,p_bonferroni,p_bh,survives
+full_vs_composition_only:paired_bootstrap_auc,0.0001,0.0009000000000000001,0.00012857142857142858,Bonferroni
+full_vs_composition_only:delong_auc,1.1918451678042646e-43,1.0726606510238381e-42,3.575535503412794e-43,Bonferroni
+full_vs_composition_only:mcnemar,2.6201688287676515e-32,2.358151945890886e-31,5.895379864727217e-32,Bonferroni
+full_vs_length_only:paired_bootstrap_auc,0.0001,0.0009000000000000001,0.00012857142857142858,Bonferroni
+full_vs_length_only:delong_auc,0.0,0.0,0.0,Bonferroni
+full_vs_length_only:mcnemar,1.31283433568247e-190,1.181550902114223e-189,5.907754510571115e-190,Bonferroni
+honest_vs_leaky:paired_bootstrap_auc,0.0001,0.0009000000000000001,0.00012857142857142858,Bonferroni
+honest_vs_leaky:mcnemar,0.30745625495910645,1.0,0.30745625495910645,no
+honest_vs_leaky:delong,0.00018254674178533672,0.0016429206760680305,0.00020536508450850382,Bonferroni

@@ -8,51 +8,65 @@ PROTOCOL
   meta layer              5 candidates, genuine 5-fold OOF
   meta feature vector     K+1 = 11, w_k = AUC_oof / sum(AUC_oof),
                           recomputed inside every meta OOF fold
-  selected meta-learners  ['xgb', 'lgbm', 'rf']
-  blend weights           [0.9649, 0.0029, 0.0323]  (oof_optimised_nested_validated)
+  selected meta-learners  ['gb', 'xgb', 'rf']
+  blend weights           [0.3334, 0.3333, 0.3333]  (normalised_auc_heuristic)
   MLP gate                dropped (OOF AUC decision)
-  calibration             isotonic, fitted on TRAIN OOF, applied to val
-  threshold               Youden J = 0.5417, chosen on calibrated TRAIN OOF
+  calibration             beta, fitted on TRAIN OOF, applied to val
+  threshold               Youden J = 0.4904, chosen on calibrated TRAIN OOF
   Optuna                  TPESampler(seed=42), 20 trials,
                           3-fold CV AUC objective
   toxic weight multiplier 1.5
   validation labels       locked until Section 17; scored exactly once
 
 HELD-OUT VALIDATION (n = 2206)
-  F1            0.9085   [0.8953, 0.9212]
-  AUC-ROC       0.9672   [0.9603, 0.9738]
-  AUC-PR        0.9700   [0.9629, 0.9765]
-  Accuracy      0.9107
-  Precision     0.9314
-  Recall        0.8867
-  Specificity   0.9347
-  MCC           0.8223
-  Brier         0.0675    ECE(10-bin) 0.0172
-  AUC-ROC and AUC-PR are on the RAW blend (2182 distinct scores).
-  On the calibrated vector (60 distinct) they would read
-  0.9666 / 0.9660 (-0.0006 / -0.0040) -- an
+  F1            0.9105   [0.8977, 0.9227]
+  AUC-ROC       0.9675   [0.9607, 0.9741]
+  AUC-PR        0.9709   [0.9644, 0.9769]
+  Accuracy      0.9102
+  Precision     0.9080
+  Recall        0.9130
+  Specificity   0.9075
+  MCC           0.8205
+  Brier         0.0666    ECE(10-bin) 0.0195
+  AUC-ROC and AUC-PR are on the RAW blend (2192 distinct scores).
+  On the calibrated vector (2192 distinct) they would read
+  0.9675 / 0.9709 (+0.0000 / +0.0000) -- an
   isotonic tie artifact. Calibration is for the threshold and Brier/ECE, not for ranking.
-  confusion     TN=1031 FP=72 FN=125 TP=978
-  sigma_F1      0.0066  (B=10000 paired resamples, seed=42)
+  confusion     TN=1001 FP=102 FN=96 TP=1007
+  sigma_F1      0.0064  (B=10000 paired resamples, seed=42)
 
-SAFETY-SCREEN THRESHOLD (0.2193, target recall >= 95%)
-  Recall 0.9674   Precision 0.8047   F1 0.8786   F2 0.9298
+NOISE FLOOR
+  resampling sd(F1)            0.0064
+  meta-layer seed sd(F1)       0.0002  (5 seeds, base layer fixed -- a LOWER bound)
+  combined (lower bound)       0.0064  <-- what a cross-config claim must clear
+  top-3 selection seed-stable  False
+
+FOLDS
+  scheme stratified_label_x_length, J=10, 4987 homology clusters in train
+  cluster straddle 51.1% of held-out rows have a 70%-identity twin in their own fold's training half
+
+BASELINES (identical protocol, same folds, same threshold rule, same single val pass)
+  composition_only     F1 0.8076   AUC-ROC 0.8814   MCC 0.6265
+  length_only          F1 0.6667   AUC-ROC 0.4778   MCC 0.0000
+
+SAFETY-SCREEN THRESHOLD (0.2005, target recall >= 95%)
+  Recall 0.9655   Precision 0.8173   F1 0.8853   F2 0.9318
 
 CONFORMAL PREDICTION (Mondrian split conformal, alpha=0.05, quantiles from TRAIN OOF)
-  target coverage 95%   empirical 0.9642
-  commits to a single label on 83.8% of peptides, 0.9573 accurate there
-  abstains (set = both labels) on 358 peptides
+  target coverage 95%   empirical 0.9610
+  commits to a single label on 85.3% of peptides, 0.9543 accurate there
+  abstains (set = both labels) on 324 peptides
 
 LEAKAGE TAX
-  all four decisions refit on y_val   F1 +0.0025   AUC +0.0025
-  calibration + threshold only        F1 +0.0041   AUC +0.0021
+  all four decisions refit on y_val   F1 +0.0024   AUC +0.0023
+  calibration + threshold only        F1 +0.0008   AUC +0.0018
   (the second is what v30's diagnostic measured and the paper currently quotes)
 
 FEATURES
   ESM2 raw 1280   PEPE raw 480   handcrafted raw 3771
-  selected per fold: [1292, 1303, 1264, 1300, 1257, 1254, 1322, 1297, 1288, 1284]
+  selected per fold: [1264, 1334, 1296, 1298, 1289, 1300, 1264, 1284, 1277, 1286]
   >>> the handcrafted raw count is 3771, NOT 3,307. Update the paper.
 
 REDUNDANCY
-  exact train/val duplicates 4   label conflicts among them 0
+  exact train/val duplicates 205   label conflicts among them 10
 ==============================================================================

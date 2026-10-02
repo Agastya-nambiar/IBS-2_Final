@@ -1,21 +1,21 @@
 {
   "top_meta": [
+    "gb",
     "xgb",
-    "lgbm",
     "rf"
   ],
   "blend_weights": [
-    0.9648511456528609,
-    0.0028923407821934274,
-    0.03225651356391042
+    0.33339392995564293,
+    0.33333521693488133,
+    0.3332708531094758
   ],
-  "weight_source": "oof_optimised_nested_validated",
+  "weight_source": "normalised_auc_heuristic",
   "use_mlp_gate": false,
-  "calibrator": "isotonic",
+  "calibrator": "beta",
   "thresholds": {
-    "youden_j": 0.5416666666666666,
-    "sensitivity_095": 0.2192513368983957,
-    "f1_max_oof": 0.45454545454545453
+    "youden_j": 0.490439342414021,
+    "sensitivity_095": 0.20048822690245927,
+    "f1_max_oof": 0.490439342414021
   },
-  "primary_threshold": 0.5416666666666666
+  "primary_threshold": 0.490439342414021
 }
